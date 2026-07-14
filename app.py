@@ -34,10 +34,10 @@ def actualizar(id):
     resultado = actualizar_libro(id, libro)
     return jsonify(resultado), 200
 
-@app.delete("/libros/<int:libro_id>")
-def borrar_libro(libro_id):
-    # TODO: comprobar existencia, eliminar y responder correctamente.
-    return jsonify({"mensaje": "Endpoint pendiente"}), 501
+@app.delete("/libros/<int:id>")
+def eliminar(id):
+    resultado = eliminar_libro(id)
+    return jsonify(resultado), 200
 
 @app.errorhandler(Exception)
 def manejar_error(error):
