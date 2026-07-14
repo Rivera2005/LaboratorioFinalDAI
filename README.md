@@ -1,4 +1,4 @@
-# Sprint 0 - Integración a un proyecto existente
+# Sprint 0 - Integración a un proyecto existente EQUIPO HIGUYS
 
 ## Propósito
 
