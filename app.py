@@ -17,8 +17,10 @@ def listar_libros():
 
 @app.get("/libros/<int:libro_id>")
 def consultar_libro(libro_id):
-    # TODO: llamar a obtener_libro_por_id y responder 404 cuando no exista.
-    return jsonify({"mensaje": "Endpoint pendiente"}), 501
+    libro = obtener_libro_por_id(libro_id)
+    if libro is None:
+        return jsonify({"error": "Libro no encontrado"}), 404
+    return jsonify(libro), 200
 
 @app.post("/libros")
 def crear_libro():

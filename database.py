@@ -15,9 +15,17 @@ def obtener_libros():
     return respuesta.data
 
 def obtener_libro_por_id(libro_id: int):
-    """TODO 1: consultar un libro por su id y devolverlo o None."""
-    # Pista: utilice .eq("id", libro_id) y revise respuesta.data.
-    raise NotImplementedError("Endpoint pendiente: GET /libros/<id>")
+    respuesta = (
+    supabase
+    .table("libros")
+    .select("*")
+    .eq("id", libro_id)
+    .execute()
+    )
+    if respuesta.data:
+        return respuesta.data[0]
+    
+    return None
 
 def insertar_libro(datos: dict):
     """TODO 2: insertar un libro y devolver el registro creado."""
