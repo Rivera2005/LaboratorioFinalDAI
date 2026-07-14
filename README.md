@@ -22,6 +22,12 @@ Activación en Windows:
 .venv\Scripts\activate
 ```
 
+Activación en Mac:
+
+```bash
+source .venv\bin\activate
+```
+
 Instalación y configuración:
 
 ```bash
