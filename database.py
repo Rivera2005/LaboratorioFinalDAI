@@ -16,21 +16,25 @@ def obtener_libros():
 
 def obtener_libro_por_id(libro_id: int):
     respuesta = (
-    supabase
-    .table("libros")
-    .select("*")
-    .eq("id", libro_id)
-    .execute()
+        supabase
+        .table("libros")
+        .select("*")
+        .eq("id", libro_id)
+        .execute()
     )
     if respuesta.data:
         return respuesta.data[0]
     
     return None
 
-def insertar_libro(datos: dict):
-    """TODO 2: insertar un libro y devolver el registro creado."""
-    # Pista: table(...).insert(datos).execute()
-    raise NotImplementedError("Endpoint pendiente: POST /libros")
+def insertar_libro(libro):
+    response = (
+        supabase
+        .table("libros")
+        .insert(libro)
+        .execute()
+    )
+    return response.data
 
 def actualizar_libro(libro_id: int, cambios: dict):
     """TODO 3: actualizar sólo el libro indicado y devolverlo."""
